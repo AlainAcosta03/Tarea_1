@@ -1,0 +1,43 @@
+import Foundation
+ 
+let hello = "Hello, world!"
+ 
+//let se utiliza para indicar constantes
+//var se utiliza para indicar variables
+ 
+//var nombre = "cosas" //Implicito que es String
+//ar nombre_2: String = "Petra" //Explicito que es String
+ 
+var edad_1: Float = 10.5
+var nombre_1: String = "Pedro"
+var mayoria_edad_1: Bool = true
+var dinero_1: Int = 100
+var estatura_1: Float = 1.75
+ 
+var edad_2 = 18.8 //Yo digo que es Decimal
+print ("El tipo de dato de edad_02 es \(type(of: edad_2))")
+var nombre_2 = "Roberto" //Yo creo que es tipo String
+print("El tipo de dato de nombre_2 es \(type(of: nombre_2))")
+var mayoria_edad_2 = false //Yo creo que es un booleano
+print("El tipo de dato de mayoria_edad_2 es \(type(of: mayoria_edad_2))")
+var dinero_2 = 4896 //Yo digo que es un entero
+print("El tipo de dato de dinero_2 es \(type(of: dinero_2))")
+var estatura_2 = 1.32 //Yo creo que es un Double
+print("El tipo de dato de estatura_2 es \(type(of: estatura_2))")
+ 
+let edad_3: UInt = 25 //Solo almacena enteros en positivo
+let nombre_3: Character = "a" //Solo almacena un caracter
+let mayoria_edad_3: Bool = false
+let dinero_3: Int64 = 9223372036854775807 //Almacena enteros de 64 bits
+let estatura_3: Double = 1.897
+ 
+let edad_4 = 25 //Yo creo que es un tipo entero
+print("El tipo de dato de edad_4 es \(type(of: edad_4))")
+let nombre_4 = "b" //Yo creo que es un string
+print("El tipo de dato de nombre_4 es \(type(of: nombre_4))")
+let mayoria_edad_4 = true //Yo creo que es un booleano
+print("El tipo de dato de mayoria_edad_4 es \(type(of: mayoria_edad_4))")
+let dinero_4 = 9223372036854775807 //Yo creo que es un entero
+print("El tipo de dato de dinero_4 es \(type(of: dinero_4))")
+let estatura_4 = 1.897 //Yo creo que es un double
+print("El tipo de dato de estatura_4 es \(type(of: estatura_4))")
