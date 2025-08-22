@@ -1,0 +1,129 @@
+class Artista {
+    var nombre: String
+    var pais: String
+    var añoInicio: Int
+    
+    init(nombre: String, pais: String, añoInicio: Int) {
+        self.nombre = nombre
+        self.pais = pais
+        self.añoInicio = añoInicio
+    }
+    
+    func info_Artista() -> String {
+        return "Artista: \(nombre) de \(pais), inicio su carrera en \(añoInicio)"
+    }
+}
+
+class Cancion{
+    var titulo: String
+    var duracion: Double
+    var artista: Artista
+    
+    init(titulo: String, duracion: Double, artista: Artista){
+        self.titulo = titulo
+        self.duracion = duracion
+        self.artista = artista
+    }
+    
+    func info_Cancion() -> String {
+        return "Canción: \(titulo) - Duración: \(duracion) segundos"
+    }
+}
+
+class Album{
+    var titulo: String
+    var año: Int
+    let artista: Artista
+    var canciones: [Cancion]
+    
+    init(titulo: String, año: Int, artista: Artista) {
+        self.titulo = titulo
+        self.año = año
+        self.artista = artista
+        self.canciones = []
+    }
+    
+    func agregarCancion(cancion: Cancion) {
+        canciones += [cancion]
+    }
+    
+    func totalCanciones() -> Int {
+        return canciones.count
+    }
+    
+    func info_Album() -> String {
+        return "Álbum: \(titulo) (\(año)) - \(totalCanciones()) canciones"
+    }
+}
+
+class Usuario{
+    var nombre: String
+    var id: Int
+    var albumesFavoritos: [Album]
+    
+    init(nombre: String, id: Int) {
+        self.nombre = nombre
+        self.id = id
+        self.albumesFavoritos = []
+    }
+    
+    func agregarFavorito(album: Album) {
+        albumesFavoritos += [album]
+    }
+    
+    func mostrarFavoritos() -> String {
+        return "\(nombre) tiene \(albumesFavoritos.count) álbumes favoritos"
+    }
+    
+}
+
+class streamingMusica{
+    var nombre: String
+    var albumesDisponibles: [Album]
+    var usuariosRegistrados: [Usuario]
+    
+    init(nombre: String) {
+        self.nombre = nombre
+        self.albumesDisponibles = []
+        self.usuariosRegistrados = []
+    }
+    
+    func agregarAlbum(album: Album) {
+        albumesDisponibles += [album]
+    }
+    
+    func registrarUsuario(usuario: Usuario) {
+        usuariosRegistrados += [usuario]
+    }
+    
+    func info_Tienda() -> String {
+        return "Tienda: \(nombre) - \(albumesDisponibles.count) álbumes - \(usuariosRegistrados.count) usuarios"
+    }
+}
+
+//Agregamos datos a cada clase
+let artista1 = Artista(nombre: "Birrias Traicioneras Samurai (BTS)", pais: "México", añoInicio: 2020)
+let album1 = Album(titulo: "Ponle como quieras", año: 2020, artista: artista1)
+let cancion1 = Cancion(titulo: "Debut", duracion: 180, artista: artista1)
+let cancion2 = Cancion(titulo: "Despedida", duracion: 210, artista: artista1)
+
+//Despues de crear un album, se introducen las dos canciones ya registradas
+album1.agregarCancion(cancion: cancion1)
+album1.agregarCancion(cancion: cancion2)
+
+//Se crea un usuario y se le da un album favorito
+let usuario1 = Usuario(nombre: "Ana García", id: 1)
+usuario1.agregarFavorito(album: album1)
+
+//Se define un nombre para la tienda, se registra un album y un usuario
+let tienda = streamingMusica(nombre: "Spootify")
+tienda.agregarAlbum(album: album1)
+tienda.registrarUsuario(usuario: usuario1)
+
+//Imprimimos datos de las clases mediante las funciones creadas
+print(artista1.info_Artista())
+print(cancion1.info_Cancion())
+print(cancion2.info_Cancion())
+print(album1.info_Album())
+print(usuario1.mostrarFavoritos())
+print(tienda.info_Tienda())
